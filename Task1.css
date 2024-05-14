@@ -54,3 +54,25 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.container
+{
+    width: 960px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px)
+{
+    .container
+    {
+        width: 720px;
+    }
+}
+
+@media (max-width: 480px)
+{
+    .container
+    {
+        width: 100px;
+        padding: 10px;
+    }
+}
