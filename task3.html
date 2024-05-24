@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover delicious recipes for breakfast, lunch, dinner, and dessert. Find your favorite recipes with Recipe Finder.">
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Recipe Finder</h1>
+        <nav>
+            <ul>
+                <li><a href="#breakfast">Breakfast</a></li>
+                <li><a href="#lunch">Lunch</a></li>
+                <li><a href="#dinner">Dinner</a></li>
+                <li><a href="#dessert">Dessert</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="breakfast">
+            <h2>Breakfast Recipes</h2>
+            <article>
+                <h3>Omelette</h3>
+                <p>A simple and delicious omelette recipe.</p>
+                <p><strong>Ingredients:</strong> Eggs, cheese, vegetables</p>
+                <p><strong>Instructions:</strong> Beat eggs, add ingredients, cook in a pan.</p>
+            </article>
+        </section>
+
+        <section id="lunch">
+            <h2>Lunch Recipes</h2>
+            <article>
+                <h3>Greek Salad</h3>
+                <p>A healthy and refreshing Greek salad recipe.</p>
+                <p><strong>Ingredients:</strong> Cucumber, tomato, olives, feta cheese, olive oil</p>
+                <p><strong>Instructions:</strong> Chop vegetables, mix with cheese and olives, dress with olive oil.</p>
+            </article>
+        </section>
+
+        <section id="dinner">
+            <h2>Dinner Recipes</h2>
+            <article>
+                <h3>Spaghetti Carbonara</h3>
+                <p>A classic Italian pasta dish.</p>
+                <p><strong>Ingredients:</strong> Spaghetti, eggs, pancetta, parmesan cheese</p>
+                <p><strong>Instructions:</strong> Cook pasta, fry pancetta, mix with eggs and cheese, toss with pasta.</p>
+            </article>
+        </section>
+
+        <section id="dessert">
+            <h2>Dessert Recipes</h2>
+            <article>
+                <h3>Chocolate Cake</h3>
+                <p>A rich and indulgent chocolate cake.</p>
+                <p><strong>Ingredients:</strong> Flour, cocoa powder, sugar, eggs, butter</p>
+                <p><strong>Instructions:</strong> Mix dry ingredients, add wet ingredients, bake in the oven.</p>
+            </article>
+        </section>
+
+        <!-- Add a form for adding new recipes -->
+        <section id="add-recipe">
+            <h2>Add a New Recipe</h2>
+            <form id="recipe-form">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" name="recipe-name" required>
+                
+                <label for="recipe-category">Category:</label>
+                <select id="recipe-category" name="recipe-category" required>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="dinner">Dinner</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+
+                <label for="recipe-ingredients">Ingredients:</label>
+                <textarea id="recipe-ingredients" name="recipe-ingredients" required></textarea>
+
+                <label for="recipe-instructions">Instructions:</label>
+                <textarea id="recipe-instructions" name="recipe-instructions" required></textarea>
+
+                <button type="submit">Add Recipe</button>
+            </form>
+        </section>
+    </main>
+    </body>
+    </html>
+    
