@@ -1,50 +1,44 @@
-import React, { useState } from 'react';
-import './TodoList.css';
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
 
-const TodoList = () => {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState('');
+function addTask()
+{
+   if(inputBox.value === '')
+     alert("Assign name to the task!!");
+   else
+   {
+     let li = document.createElement("li");
+     li.innerHTML = inputBox.value;
+     listContainer.appendChild(li);
+     let span = document.createElement("span");
+     span.innerHTML="\u00d7";
+     li.appendChild(span);
+   }
+   inputBox.value="";
+   saveData();
+}
 
-  const addTask = () => {
-    if (newTask.trim()) {
-      setTasks([...tasks, { text: newTask, completed: false }]);
-      setNewTask('');
+listContainer.addEventListener("click",function(e)
+{
+    if(e.target.tagName === "LI")
+    {
+        e.target.classList.toggle("checked");
+        saveData();
     }
-  };
+    else if(e.target.tagName === "SPAN")
+    {
+        e.target.parentElement.remove();
+        saveData();
+    }
+},false);
 
-  const completeTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
-    setTasks(newTasks);
-  };
+function saveData()
+{
+  localStorage.setItem("data",listContainer.innerHTML);
+}
 
-  const deleteTask = (index) => {
-    const newTasks = tasks.filter((task, i) => i !== index);
-    setTasks(newTasks);
-  };
-
-  return (
-    <div className="todo-list">
-      <h1>To-Do List</h1>
-      <div>
-        <input
-          type="text"
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          placeholder="Add a new task"
-        />
-        <button onClick={addTask}>Add Task</button>
-      </div>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index} className={task.completed ? 'completed' : ''}>
-            <span onClick={() => completeTask(index)}>{task.text}</span>
-            <button onClick={() => deleteTask(index)}>Delete</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default TodoList;
+function showTask()
+{
+    listContainer.innerHTML = localStorage.getItem("data");
+}
+showTask();
